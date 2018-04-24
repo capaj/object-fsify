@@ -1,0 +1,18 @@
+{
+  "name": "object-fsify",
+  "version": "0.1.0",
+  "description": "",
+  "main": "object-fsify.js",
+  "scripts": {
+    "test": "npx ava object-fsify.spec.js",
+    "prepare": "npm test"
+  },
+  "author": "capajj@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "object-observable": "^1.0.8"
+  },
+  "devDependencies": {
+    "ava": "^0.25.0"
+  }
+}
