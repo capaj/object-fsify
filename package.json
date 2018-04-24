@@ -1,11 +1,14 @@
 {
   "name": "object-fsify",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "",
   "main": "object-fsify.js",
   "scripts": {
     "test": "npx ava object-fsify.spec.js",
     "prepare": "npm test"
+  },
+  "engines": {
+    "node": "^6.0.0"
   },
   "author": "capajj@gmail.com",
   "license": "MIT",
