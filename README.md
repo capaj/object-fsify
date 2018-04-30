@@ -21,3 +21,12 @@ a.b = 10
 ```
 
 When you run the script `myAwesomeNodejsScript.js` again, all the numbers will be there twice in the array as you would expect-file is loaded up when you initialise the `a` variable.
+
+## options
+
+```javascript
+{
+  async: true,  // default false, true makes fs operation async
+  indent: 2 // default is none, 2 makes JSON file indents 2 spaces
+}
+```
