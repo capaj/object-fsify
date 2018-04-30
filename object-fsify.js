@@ -1,7 +1,8 @@
 const objectObservable = require('object-observable')
 const fs = require('fs')
 
-module.exports = (defaultValue, path, async = false) => {
+module.exports = (defaultValue, path, opts) => {
+  const { async = false, indent } = opts || {}
   let fsValue
   try {
     fsValue = fs.readFileSync(path)
@@ -13,10 +14,16 @@ module.exports = (defaultValue, path, async = false) => {
   }
   const persistedVariable = objectObservable.create(fsValue)
   objectObservable.observeInmediate(persistedVariable, change => {
-    if (async) {
-      fs.writeFile(path, JSON.stringify(persistedVariable), 'utf8')
+    let json
+    if (indent) {
+      json = JSON.stringify(persistedVariable, null, indent)
     } else {
-      fs.writeFileSync(path, JSON.stringify(persistedVariable), 'utf8')
+      json = JSON.stringify(persistedVariable)
+    }
+    if (async) {
+      fs.writeFile(path, json, 'utf8')
+    } else {
+      fs.writeFileSync(path, json, 'utf8')
     }
   })
 
